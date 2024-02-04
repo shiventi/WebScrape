@@ -33,6 +33,7 @@ import spacy
 from bs4 import BeautifulSoup
 import requests
 import re
+from better_profanity import profanity
 import time
 import streamlit as st
 from sentence_transformers import SentenceTransformer, util
@@ -274,12 +275,18 @@ def main():
 
     user_input = st.text_input("Enter your sentence:")
 
-    if st.button("Get Answer"):
-        with st.spinner("Finding answer..."):
-            answer_result = answer(user_input)
-            time.sleep(2)
-        st.success("Answer found!")
-        st.write("Answer:", answer_result)
+    s = profanity.contains_profanity(str(user_input))
+
+    if s == False:
+        if st.button("Get Answer"):
+            with st.spinner("Finding answer..."):
+                answer_result = answer(user_input)
+                time.sleep(2)
+            st.success("Answer found!")
+            st.write("Answer:", answer_result)
+    else:
+        st.error("NO BAD WORDS!", icon='🚨')
+        pass
 
 if __name__ == "__main__":
     main()
