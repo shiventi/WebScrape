@@ -9,7 +9,8 @@ This Question Answering app extracts information from a dataset and performs web
    pip install json beautifulsoup4 requests streamlit spacy sentence-transformers googlesearch-python transformers regex torch
 
 ## Run Code
-1. ```bash
+1. Run the code
+   ```bash
    streamlit run your_script_name.py
 
 ## Customize
