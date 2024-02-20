@@ -6,7 +6,7 @@ This Question Answering app extracts information from a dataset and performs web
 ## Instructions
 1. Ensure you have the required libraries installed:
    ```bash
-   pip install json beautifulsoup4 requests streamlit spacy sentence-transformers googlesearch-python transformers regex torch
+   pip install -r requirements.txt
 
 ## Run Code
 1. Run the code
